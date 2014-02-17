@@ -1,0 +1,24 @@
+These are simple scripts (may not always be 100% robust) to do some basic C
+code analysis. They require parsec and possibly regex-posix.
+
+FunctionPrototypes
+===================
+A parser to print out the function prototypes in a c file so that you can put
+them in a .h file
+
+To run:
+runghc FunctionPrototypes.hs < input_file.c
+
+Considers: comments
+
+SwitchCaseChecker
+===================
+A parser to print out the "case" and "default" statements that --do not-- have
+break statements at the end for a given C code.
+
+To run:
+runghc SwitchCaseChecker.hs < input_file.c
+
+Considers: break statements that break a while/for loop in a case statement.
+Does not consider: loops that do not have curly brackets. nested switch/case
+statements
